@@ -1,25 +1,33 @@
 package Server;
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.net.ServerSocket;
 import java.net.Socket;
 
 public class Server {
 	public static void main (String args[]){
+	
+		try
+		(	
+				ServerSocket ss =new ServerSocket(12345);
+				Socket s = ss.accept();
+				//waits here
+				InputStream in = s.getInputStream();
+				Reader base = new InputStreamReader(in);
+				BufferedReader r = new BufferedReader(base);
+		){
+			String result = r.readLine();
+			System.out.println(result);
+			
+		}catch(IOException e){
+			
+		}
 		
 	}
 	
-	void serverSide() throws IOException{
-		
-		ServerSocket ss =new ServerSocket(12345);
-		
-		//This line will block
-		Socket s = ss.accept();
-		//Now we have connection to the client.
-		
-		//BufferedInputStream r = new BufferedReader(new InputStreamReader(s.getInputStream(), arg1));
-	}
+
 	
 }
