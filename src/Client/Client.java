@@ -17,7 +17,7 @@ public static void main (String args[]){
 			Writer base = new OutputStreamWriter(out);
 			BufferedWriter w = new BufferedWriter(base);
 			){
-				w.write("Martin did it thanks to Ben!");
+				w.write("");
 			}catch(IOException e){
 				
 			}
